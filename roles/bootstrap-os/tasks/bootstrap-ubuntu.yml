@@ -57,16 +57,16 @@
     - https_proxy is defined
     - need_https_proxy.rc != 0
 
-- name: Install python and pip
-  raw:
-    apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y {{ ubuntu_packages | join(" ") }}
-  become: true
-  environment: {}
-  when:
-    - need_bootstrap.results | map(attribute='rc') | sort | last | bool
+# - name: Install python and pip
+#   raw:
+#     apt-get update && \
+#     DEBIAN_FRONTEND=noninteractive apt-get install -y {{ ubuntu_packages | join(" ") }}
+#   become: true
+#   environment: {}
+#   when:
+#     - need_bootstrap.results | map(attribute='rc') | sort | last | bool
 
-- set_fact:
-    ansible_python_interpreter: "/usr/bin/python"
-  tags:
-    - facts
+# - set_fact:
+#     ansible_python_interpreter: "/usr/bin/python"
+#   tags:
+#     - facts
